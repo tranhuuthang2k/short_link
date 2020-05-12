@@ -15,6 +15,8 @@ class shortendontloginController extends Controller
     public function index()
     {
         //
+        
+       
         return  view ('shortlinkdontlogin',['shortLinks'=> ShortLink::all()]);
     }
 
@@ -37,10 +39,17 @@ class shortendontloginController extends Controller
     public function store(Request $request,ShortLink $ShortLink)
     {
         //
+        
+        $request->validate([
+
+            'link' => 'required|url'
+         ]);
+        
         $ShortLink->link= $request->link;
         $ShortLink->code= Str::random(6);
         $ShortLink->save();
-        return redirect()->route('shorten.index');
+        return redirect()->route('shorten.index')
+        ->with('success', 'ĐÃ TẠO LINK !');
     }
 
     /**

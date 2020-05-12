@@ -20,4 +20,6 @@ Route::resource('/generate', 'ShortLinkController',['names'=>'ShortLink'])->midd
 Route::get('/{code}', 'ShortLinkController@shortenLink')->name('shorten.link');
 Route::resource('/', 'shortendontloginController',['names'=>'shorten']);
 
-
+// Route::get('/', function () {
+//     return view('welcome');
+// })->name('index');

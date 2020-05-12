@@ -26,7 +26,12 @@
         </form>
       </div>
       <div class="card-body">
-   
+      @if (Session::has('success'))
+                <div class="alert alert-success">
+                    <p>{{ Session::get('success') }}</p>
+                </div>
+
+     @endif
    
             <table class="table table-bordered table-sm">
                 <thead>
@@ -50,6 +55,7 @@
                 </tbody>
             </table>
       </div>
+    
     </div>
    
 </div>

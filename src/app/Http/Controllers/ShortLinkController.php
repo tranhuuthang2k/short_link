@@ -37,6 +37,12 @@ class ShortLinkController extends Controller
     public function store(Request $request,ShortLink $ShortLink)
     {
 
+        $request->validate([
+
+            'link' => 'required|url'
+         ]);
+ 
+    
         $ShortLink->link= $request->link;
         $ShortLink->code= Str::random(6);
         $ShortLink->save();
