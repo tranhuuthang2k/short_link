@@ -31,8 +31,7 @@
                     <p>{{ Session::get('success') }}</p>
                 </div>
 
-     @endif
-   
+
             <table class="table table-bordered table-sm">
                 <thead>
                     <tr>
@@ -55,6 +54,8 @@
                 </tbody>
             </table>
       </div>
+      @endif
+   
     
     </div>
    

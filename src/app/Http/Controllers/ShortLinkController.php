@@ -39,10 +39,11 @@ class ShortLinkController extends Controller
 
         $request->validate([
 
-            'link' => 'required|url'
-         ]);
- 
-    
+           'link' => 'required|url'
+
+        ]);
+
+   
         $ShortLink->link= $request->link;
         $ShortLink->code= Str::random(6);
         $ShortLink->save();
