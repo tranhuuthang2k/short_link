@@ -11,7 +11,7 @@
 <body>
    
 <div class="container">
-    <h1>Rút Gọn Link,đăng nhập để sửa link </h1>
+    <h1>Rút Gọn Link, Đăng nhập để tạo link theo ý muốn </h1>
     
     <div class="card">
       <div class="card-header">
@@ -31,7 +31,7 @@
                     <p>{{ Session::get('success') }}</p>
                 </div>
 
-
+                
             <table class="table table-bordered table-sm">
                 <thead>
                     <tr>
@@ -51,10 +51,12 @@
                             <td>{{ $shortLink->link }}</td>
                         </tr>
                     @endforeach
+             
                 </tbody>
+                @endif
             </table>
       </div>
-      @endif
+  
    
     
     </div>

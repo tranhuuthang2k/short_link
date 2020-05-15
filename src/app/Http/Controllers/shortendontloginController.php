@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use  App\models\ShortLink;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-
+use Auth;
 class shortendontloginController extends Controller
 {
     /**
@@ -44,7 +44,8 @@ class shortendontloginController extends Controller
 
             'link' => 'required|url'
          ]);
-        
+    
+        $ShortLink->user_id = NULL;
         $ShortLink->link= $request->link;
         $ShortLink->code= Str::random(6);
         $ShortLink->save();

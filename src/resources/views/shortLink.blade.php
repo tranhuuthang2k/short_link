@@ -51,7 +51,9 @@
                             </td>
                             <td>{{ $shortLink->link }}</td>
                         </tr>
+                   
                     @endforeach
+                 
                 </tbody>
             </table>
       </div>

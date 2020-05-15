@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use  App\models\ShortLink;
+use Auth;
 class ShortLinkController extends Controller
 {
     /**
@@ -14,7 +15,9 @@ class ShortLinkController extends Controller
     public function index()
     {
         //
-        return  view ('shortLink',['shortLinks'=> ShortLink::all()]);
+        $id = Auth::user()->id;
+        $UserShortLink = ShortLink::where('user_id','=',$id)->get();   
+        return  view ('shortLink',['shortLinks'=> $UserShortLink]);
     }
 
     /**
@@ -42,8 +45,7 @@ class ShortLinkController extends Controller
            'link' => 'required|url'
 
         ]);
-
-   
+        $ShortLink->user_id= Auth::User()->id;
         $ShortLink->link= $request->link;
         $ShortLink->code= Str::random(6);
         $ShortLink->save();
